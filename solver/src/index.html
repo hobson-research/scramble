@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Xavier's Anagram solver</title>
+	<meta content="Fastest online anagram solver on the planet! Solves anagrams in English or Dutch for free! Featuring two large dictionaries of well over 150,000 words." name="description" />
+	<meta content="Anagram, solver, anagram solver, solving, dutch, english, dictionary, fast, easy" name="keywords" /> 
+	
+	<style type="text/css">
+body{font-family:Verdana;}
+#cc{position:absolute;margin-bottom:auto;margin-top:auto;top:40%;left:20%;right:20%;height:50px;border:0px solid black;padding:5px;}
+#form{font-size:2em;text-align:center;width:100%;color:grey;border-radius:25px;border:1px solid #CECECE;}
+#title{width:100%;font-size:1.3em;color:grey;letter-spacing:7px;text-align:center;font-family:monospace;}
+.count{font-size:0.7em;color:grey;}
+#results{display:none;text-align:center;padding-top:60px;font-size:0.8em;color:grey;}
+#loading{display:none; text-align:center;padding-top:40px}
+	</style>
+	
+<script type="text/javascript">
+	function solve(){var b=document.getElementById("form").value,c=document.getElementById("results"),d=document.getElementById("lang_eng");document.getElementById("loading").style.display="block";document.getElementById("results").style.display="none";if(b==""||b==" ")c.innerHTML="You need to enter an anagram!";else{var a=new XMLHttpRequest;a.open("GET","search.php?q="+b+"&lang="+(d.checked?"english":"dutch"),true);a.onreadystatechange=function(){if(a.readyState==4)if(a.status==200){c.innerHTML=a.responseText;
+	document.getElementById("loading").style.display="none";document.getElementById("results").style.display="block"}else c.innerHTML="Our database server seems to be on fire..."};a.send(null)}};
+</script>
+</head>
+<body onload="document.getElementById('form').focus();">
+	<div id="cc">
+		<div id="title">XAVIERs ANAGRAM SOLVER</div>
+		<form action="javascript:solve()" onsubmit="solve();">
+			<input type="text" name="q" id="form" style="outline: none;" autocomplete="off"/>
+			
+			<div style="text-align:center; left: 25%; width:100px; position:absolute;">
+				<input type="radio" id="lang_eng" name="a" checked> English<br />
+				<span class="count">150,000 words</span>
+			</div>
+			
+			<div style="text-align:center; right: 25%; width:100px; position:absolute;">
+				<input type="radio" id="lang_nl" name="a"> Dutch<br />
+				<span class="count">180,000 words</span>
+			</div>
+		</form>
+		
+		<div id="loading">
+			<img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwoKCggAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADGwi6MjRiSenIm9hqPOvljAOBZGmeaKqubOu6CQAh+QQJCgAAACwAAAAAEAAQAAADHAi63A5ikCEek2TalftWmPZFU/WdaKqubOu+bwIAIfkECQoAAAAsAAAAABAAEAAAAxwIutz+UIlBhoiKkorB/p3GYVN1dWiqrmzrvmkCACH5BAkKAAAALAAAAAAQABAAAAMbCLrc/jDKycQgQ8xL8OzgBg6ThWlUqq5s604JACH5BAkKAAAALAAAAAAQABAAAAMbCLrc/jDKSautYpAhpibbBI7eOEzZ1l1s6yoJACH5BAkKAAAALAAAAAAQABAAAAMaCLrc/jDKSau9OOspBhnC5BHfRJ7iOXAe2CQAIfkECQoAAAAsAAAAABAAEAAAAxoIutz+MMpJ6xSDDDEz0dMnduJwZZulrmzbJAAh+QQJCgAAACwAAAAAEAAQAAADGwi63P4wRjHIEBJUYjP/2dZJlIVlaKqubOuyCQAh+QQJCgAAACwAAAAAEAAQAAADHAi63A5ikCEek2TalftWmPZFU/WdaKqubOu+bwIAOwAAAAAAAAAAAA==" width="16" height="16" alt="loading...">
+		</div>
+		
+		<div id="results">
+			
+		</div>
+	
+	</div>
+	<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-21432611-1']);_gaq.push(['_setDomainName','.savjee.be']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s)})();</script>
+</body>
+</html>
